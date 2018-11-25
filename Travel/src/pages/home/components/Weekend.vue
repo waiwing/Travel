@@ -1,24 +1,26 @@
 <template>
-  <div class="icons">
-    <swiper>
-      <swiper-slide v-for="(pageItemList, index) of pages" :key="index">
-        <div class="icon" v-for="item of pageItemList" :key="item.id">
-          <div class="icon-img">
-            <img class="icon-img-content" src="../../../assets/img/jingdian.png"/>
-          </div>
-          <p class="icon-desc">{{item.descL}}</p>
+  <div>
+    <div class="title">周末</div>
+    <ul>
+      <li class="item border-bottom" v-for="(item) of recommendList"  :key="item.id">
+       <div class="item-img-wrapper">
+         <img  class="item-img" src="../../../assets/img/jingdian.png"/>
+       </div>
+        <div class="item-info">
+          <p class="item-title">{{item.descL}}</p>
+          <p class="item-desc">{{item.descL}}</p>
         </div>
-      </swiper-slide>
-    </swiper>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeIcons',
+  name: 'HomeWeekend',
   data: () => {
     return {
-      iconList: [{
+      recommendList: [{
         id: '1001',
         imgUrl: '../../../assets/img/jingdian.png',
         descL: '好地方'
@@ -68,55 +70,33 @@ export default {
         descL: '老地方'
       }]
     }
-  },
-  computed: {
-    pages () {
-      const pages = []
-      this.iconList.forEach((element, index) => {
-        const page = Math.floor(index / 8)
-        if (!pages[page]) {
-          pages[page] = []
-        }
-        pages[page].push(element)
-      })
-      return pages
-    }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-  @import '~styles/varibles.styl'
   @import '~styles/mixins.styl'
 
-  .icons >>> .swiper-container
-     height 0
-     padding-bottom 50%
-    .icon
-      position relative
-      overflow hidden
-      float left
-      width 25%
+  .title
+    margin-top .2rem
+    line-height .8rem
+    background #eee
+    text-indent .2rem
+    .item-img-wrapper
       height 0
-      padding-bottom 25%
-      .icon-img
-        position absolute
-        top 0
-        left 0
-        right 0
-        bottom .44rem
-        box-sizing border-box
+      overflow hidden
+      padding-bottom 33.9%
+      .item-img
+        width 100%
+    .item-info
         padding .1rem
-      .icon-img-content
-        height 100%
-        display block
-        margin 0 auto
-    .icon-desc
-      position absolute
-      left 0
-      right 0
-      bottom 0
-      height .44rem
-      line-height .44rem
-      ellipsis()
+     .item-title
+        line-height .54rem
+        font-size .32rem
+        ellipsis()
+      .item-desc
+        line-height .4rem
+        color #ccc
+        ellipsis()
+
 </style>
