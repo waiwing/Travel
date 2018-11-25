@@ -2,11 +2,11 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="(item) of recommendList"  :key="item.id">
-        <img  class="item-img" src="../../../assets/img/jingdian.png"/>
+      <li class="item border-bottom" v-for="(item) of list"  :key="item.id">
+        <img  class="item-img" :src="item.imgUrl"/>
         <div class="item-info">
-          <p class="item-title">{{item.descL}}</p>
-          <p class="item-desc">{{item.descL}}</p>
+          <p class="item-title">{{item.title}}</p>
+          <p class="item-desc">{{item.desc}}</p>
           <button class="item-button">查看详情</button>
         </div>
       </li>
@@ -17,57 +17,12 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    list: Array
+  },
   data: () => {
     return {
-      recommendList: [{
-        id: '1001',
-        imgUrl: '../../../assets/img/jingdian.png',
-        descL: '好地方'
-      }, {
-        id: '1002',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1003',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1004',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1005',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1006',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1007',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1008',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1009',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1010',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1011',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1012',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }]
+
     }
   }
 }

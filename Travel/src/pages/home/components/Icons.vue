@@ -1,12 +1,12 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(pageItemList, index) of pages" :key="index">
         <div class="icon" v-for="item of pageItemList" :key="item.id">
           <div class="icon-img">
-            <img class="icon-img-content" src="../../../assets/img/jingdian.png"/>
+            <img class="icon-img-content" :src="item.imgUrl" />
           </div>
-          <p class="icon-desc">{{item.descL}}</p>
+          <p class="icon-desc">{{item.desc}}</p>
         </div>
       </swiper-slide>
     </swiper>
@@ -16,63 +16,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data: () => {
     return {
-      iconList: [{
-        id: '1001',
-        imgUrl: '../../../assets/img/jingdian.png',
-        descL: '好地方'
-      }, {
-        id: '1002',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1003',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1004',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1005',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1006',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1007',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1008',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1009',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1010',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1011',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }, {
-        id: '1012',
-        imgUrl: '../../../assets/img/jingdian2.png',
-        descL: '老地方'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((element, index) => {
+      this.list.forEach((element, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
