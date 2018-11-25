@@ -6,9 +6,12 @@
     <div class="header-input">
       <span class="iconfont">&#xe632;</span>
       请输入你要搜索的东西</div>
+    <router-link to="/city">
     <div class="header-right">
       <span class="iconfont">&#xe6aa;</span>
-      {{this.city}}</div>
+      {{this.city}}
+    </div>
+    </router-link>
   </div>
 </template>
 
@@ -25,8 +28,8 @@ export default {
   @import '~styles/varibles.styl'
   .header
     display: flex
-    height: .86rem
-    line-height: .86rem
+    height: $headerHeight
+    line-height: $headerHeight
     background: $bgColor
     color: #fff
     .header-left
@@ -45,6 +48,7 @@ export default {
       margin-left .2rem
       color: #ccc
     .header-right
+      color: blue
       width: 1.24rem
       text-align: center
 </style>
